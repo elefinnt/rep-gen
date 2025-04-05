@@ -1,12 +1,6 @@
 // Schema for the report comment generator
 
-import { sql } from "drizzle-orm";
-import {
-  index,
-  mysqlTableCreator,
-  serial,
-  varchar,
-} from "drizzle-orm/mysql-core";
+import { mysqlTableCreator, serial, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
