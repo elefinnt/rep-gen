@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1743818459542,
+      "tag": "0000_superb_golden_guardian",
+      "breakpoints": true
+    }
+  ]
+}

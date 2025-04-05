@@ -1,8 +1,12 @@
-// Example model schema from the Drizzle docs
-// https://orm.drizzle.team/docs/sql-schema-declaration
+// Schema for the report comment generator
 
 import { sql } from "drizzle-orm";
-import { index, mysqlTableCreator } from "drizzle-orm/mysql-core";
+import {
+  index,
+  mysqlTableCreator,
+  serial,
+  varchar,
+} from "drizzle-orm/mysql-core";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -12,16 +16,15 @@ import { index, mysqlTableCreator } from "drizzle-orm/mysql-core";
  */
 export const createTable = mysqlTableCreator((name) => `rep-gen_${name}`);
 
-export const posts = createTable(
-  "post",
-  (d) => ({
-    id: d.bigint({ mode: "number" }).primaryKey().autoincrement(),
-    name: d.varchar({ length: 256 }),
-    createdAt: d
-      .timestamp()
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: d.timestamp().onUpdateNow(),
-  }),
-  (t) => [index("name_idx").on(t.name)],
-);
+// Students table to store student names
+export const students = createTable("student", {
+  id: serial("id").primaryKey().autoincrement(),
+  name: varchar({ length: 255 }).notNull(),
+});
+
+// Attributes table to store positive and improvement attributes
+export const attributes = createTable("attribute", {
+  id: serial("id").primaryKey().autoincrement(),
+  text: varchar({ length: 255 }).notNull(),
+  category: varchar({ length: 255 }).notNull(),
+});
