@@ -35,7 +35,7 @@ async function seedAttributes() {
     "Able to set personal goals.",
     "Resilient in the face of challenges.",
     "Takes initiative.",
-    "Demonstrates strong communication skills."
+    "Demonstrates strong communication skills.",
   ];
 
   // To improve attributes
@@ -64,7 +64,7 @@ async function seedAttributes() {
     "Needs to stay more engaged in class.",
     "Needs to take more initiative in group work.",
     "Needs to participate more during lessons.",
-    "Needs to focus on taking more risks."
+    "Needs to focus on taking more risks.",
   ];
 
   // Insert positive attributes
@@ -85,15 +85,3 @@ async function seedAttributes() {
 
   console.log("Seeding completed successfully!");
 }
-
-// Execute the seed function
-seedAttributes()
-  .catch((e) => {
-    console.error("Error seeding the database:", e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    // Close the database connection when done
-    await db.end();
-    process.exit(0);
-  });

@@ -51,9 +51,9 @@ export function AttributeManager() {
   };
 
   const positiveAttributes =
-    searchResults?.filter((attr) => attr.category === "positive") || [];
+    searchResults?.filter((attr) => attr.category === "positive") ?? [];
   const improveAttributes =
-    searchResults?.filter((attr) => attr.category === "improve") || [];
+    searchResults?.filter((attr) => attr.category === "improve") ?? [];
 
   return (
     <div className="rounded-xl bg-white/10 p-6">
