@@ -10,9 +10,9 @@ export default function GeneratorPage() {
           <h1 className="text-4xl font-extrabold tracking-tight">
             Report Generator
           </h1>
-          
+
           <ReportGenerator />
-          
+
           <div className="flex gap-4">
             <Link
               href="/settings"

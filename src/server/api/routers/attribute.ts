@@ -86,7 +86,7 @@ export const attributeRouter = createTRPCRouter({
   delete: publicProcedure
     .input(z.object({ id: z.number() }))
     .mutation(async ({ ctx, input }) => {
-      await ctx.db.delete(attributes).where({ id: input.id });
+      await ctx.db.delete(attributes).where(eq(attributes.id, input.id));
       return { success: true };
     }),
 });
