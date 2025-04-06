@@ -34,12 +34,12 @@ export function ReportGenerator() {
   const filteredPositiveAttributes =
     positiveAttributes?.filter((attr) =>
       attr.text.toLowerCase().includes(positiveSearchTerm.toLowerCase()),
-    ) || [];
+    ) ?? [];
 
   const filteredImproveAttributes =
     improveAttributes?.filter((attr) =>
       attr.text.toLowerCase().includes(improveSearchTerm.toLowerCase()),
-    ) || [];
+    ) ?? [];
 
   const handleGenerateReport = () => {
     if (!selectedStudent || !students) return;
@@ -50,12 +50,12 @@ export function ReportGenerator() {
     const positiveAttrs =
       positiveAttributes?.filter((attr) =>
         selectedPositiveAttributes.includes(attr.id),
-      ) || [];
+      ) ?? [];
 
     const improveAttrs =
       improveAttributes?.filter((attr) =>
         selectedImproveAttributes.includes(attr.id),
-      ) || [];
+      ) ?? [];
 
     // Generate the report
     let report = `${student.name} `;
@@ -102,8 +102,8 @@ export function ReportGenerator() {
       <div className="mb-6">
         <h2 className="mb-2 text-xl font-bold">Select Student</h2>
         <select
-          value={selectedStudent || ""}
-          onChange={(e) => setSelectedStudent(Number(e.target.value) || null)}
+          value={selectedStudent ?? ""}
+          onChange={(e) => setSelectedStudent(Number(e.target.value) ?? null)}
           className="w-full rounded-md bg-white/5 p-2 text-white"
         >
           <option value="">-- Select a student --</option>
@@ -157,7 +157,7 @@ export function ReportGenerator() {
           {filteredPositiveAttributes.length > 0 && positiveSearchTerm && (
             <p className="mt-1 text-sm text-white/60">
               Showing {filteredPositiveAttributes.length} of{" "}
-              {positiveAttributes?.length || 0} attributes
+              {positiveAttributes?.length ?? 0} attributes
             </p>
           )}
         </div>
@@ -203,7 +203,7 @@ export function ReportGenerator() {
           {filteredImproveAttributes.length > 0 && improveSearchTerm && (
             <p className="mt-1 text-sm text-white/60">
               Showing {filteredImproveAttributes.length} of{" "}
-              {improveAttributes?.length || 0} attributes
+              {improveAttributes?.length ?? 0} attributes
             </p>
           )}
         </div>
