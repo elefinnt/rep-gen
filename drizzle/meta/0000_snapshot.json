@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "ecb52a9d-84b2-4852-94aa-0f55921fa643",
+  "id": "77fec369-8b6f-440b-b73b-079a3db7f83c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "rep-gen_attribute": {
@@ -42,6 +42,71 @@
       "uniqueConstraints": {},
       "checkConstraint": {}
     },
+    "rep-gen_student_attribute": {
+      "name": "rep-gen_student_attribute",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "student_id": {
+          "name": "student_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "attribute_id": {
+          "name": "attribute_id",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "rep-gen_student_attribute_student_id_rep-gen_student_id_fk": {
+          "name": "rep-gen_student_attribute_student_id_rep-gen_student_id_fk",
+          "tableFrom": "rep-gen_student_attribute",
+          "tableTo": "rep-gen_student",
+          "columnsFrom": [
+            "student_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "rep-gen_student_attribute_attribute_id_rep-gen_attribute_id_fk": {
+          "name": "rep-gen_student_attribute_attribute_id_rep-gen_attribute_id_fk",
+          "tableFrom": "rep-gen_student_attribute",
+          "tableTo": "rep-gen_attribute",
+          "columnsFrom": [
+            "attribute_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "rep-gen_student_attribute_id": {
+          "name": "rep-gen_student_attribute_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
     "rep-gen_student": {
       "name": "rep-gen_student",
       "columns": {
@@ -58,6 +123,14 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
+        },
+        "gender": {
+          "name": "gender",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'other'"
         }
       },
       "indexes": {},
@@ -65,6 +138,44 @@
       "compositePrimaryKeys": {
         "rep-gen_student_id": {
           "name": "rep-gen_student_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "rep-gen_user_attribute": {
+      "name": "rep-gen_user_attribute",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "text": {
+          "name": "text",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "category": {
+          "name": "category",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "rep-gen_user_attribute_id": {
+          "name": "rep-gen_user_attribute_id",
           "columns": [
             "id"
           ]

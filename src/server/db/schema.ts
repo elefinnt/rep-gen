@@ -22,9 +22,17 @@ export const students = createTable("student", {
   gender: varchar({ length: 50 }).notNull().default("other"), // Options: "male", "female", "other"
 });
 
-// Attributes table to store positive and improvement attributes
+// Attributes table to store positive and improvement attributes (global)
 export const attributes = createTable("attribute", {
   id: serial("id").primaryKey().autoincrement(),
+  text: varchar({ length: 255 }).notNull(),
+  category: varchar({ length: 255 }).notNull(),
+});
+
+// User-specific attributes table
+export const userAttributes = createTable("user_attribute", {
+  id: serial("id").primaryKey().autoincrement(),
+  userId: varchar({ length: 255 }).notNull(), // This will be replaced with a proper user ID when auth is added
   text: varchar({ length: 255 }).notNull(),
   category: varchar({ length: 255 }).notNull(),
 });

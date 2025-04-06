@@ -1,6 +1,7 @@
 import { attributeRouter } from "~/server/api/routers/attribute";
 import { seedRouter } from "~/server/api/routers/seed";
 import { studentRouter } from "~/server/api/routers/student";
+import { userAttributeRouter } from "~/server/api/routers/userAttribute";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
 
 /**
@@ -11,6 +12,7 @@ import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
 export const appRouter = createTRPCRouter({
   student: studentRouter,
   attribute: attributeRouter,
+  userAttribute: userAttributeRouter,
   seed: seedRouter,
 });
 
