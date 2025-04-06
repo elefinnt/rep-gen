@@ -71,19 +71,19 @@ export function ReportGenerator() {
   );
 
   // OpenAI report generation
-  const generateAIReport = (api.openai.generateReport as any).useMutation({
+  const generateAIReport = api.openai.generateReport.useMutation({
     onMutate: () => {
       setIsGeneratingAIReport(true);
     },
-    onSuccess: (data: any) => {
-      if (data.success) {
+    onSuccess: (data) => {
+      if (data.success && data.report) {
         setGeneratedReport(data.report);
       } else {
         alert(`Failed to generate AI report: ${data.error ?? "Unknown error"}`);
       }
       setIsGeneratingAIReport(false);
     },
-    onError: (error: any) => {
+    onError: (error) => {
       alert(`Error generating AI report: ${error.message}`);
       setIsGeneratingAIReport(false);
     },

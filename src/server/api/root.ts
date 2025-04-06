@@ -1,6 +1,7 @@
 import { attributeRouter } from "~/server/api/routers/attribute";
 import { seedRouter } from "~/server/api/routers/seed";
 import { studentRouter } from "~/server/api/routers/student";
+import { openaiRouter } from "~/server/api/routers/openai";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
 
 /**
@@ -12,6 +13,7 @@ export const appRouter = createTRPCRouter({
   student: studentRouter,
   attribute: attributeRouter,
   seed: seedRouter,
+  openai: openaiRouter,
 });
 
 // export type definition of API
