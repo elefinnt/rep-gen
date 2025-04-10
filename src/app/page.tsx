@@ -5,8 +5,7 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-          Report <span className="text-[hsl(280,100%,70%)]">Comment</span>{" "}
-          Generator
+          Report <span className="text-[#cc66ff]">Comment</span> Generator
         </h1>
 
         <p className="max-w-2xl text-center text-2xl">
@@ -15,7 +14,7 @@ export default async function Home() {
           reports.
         </p>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
             className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
             href="/generator"
