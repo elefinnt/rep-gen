@@ -64,7 +64,7 @@ The report should follow these specific criteria:
    - Use specific examples from the provided attributes
    - End with an optimistic summary sentence that generalizes the overall assessment
 
-4. Length: Aim for 250-300 words total.
+4. Length: Aim for 150-200 words total.
 
 Please generate the report:`;
 
