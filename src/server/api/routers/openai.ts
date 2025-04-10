@@ -40,7 +40,7 @@ export const openaiRouter = createTRPCRouter({
 
         // Construct the prompt for GPT
         const prompt = `Generate a detailed, professional student report for ${studentName} (${studentGender}). 
-The report should be 250-300 words long and incorporate the following information:
+The report should be 150-200 words long and incorporate the following information:
 
 Positive attributes:
 ${positiveAttributes.map((attr) => `- ${attr.text}`).join("\n")}
