@@ -55,7 +55,7 @@ importers:
         version: 14.1.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       openai:
         specifier: ^4.91.1
-        version: 4.91.1(zod@3.24.2)
+        version: 4.91.1(encoding@0.1.13)(zod@3.24.2)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -105,6 +105,9 @@ importers:
       drizzle-kit:
         specifier: ^0.30.2
         version: 0.30.6
+      encoding:
+        specifier: ^0.1.13
+        version: 0.1.13
       eslint:
         specifier: ^8.57.0
         version: 8.57.1
@@ -1497,6 +1500,9 @@ packages:
 
   emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
+
+  encoding@0.1.13:
+    resolution: {integrity: sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==}
 
   env-paths@3.0.0:
     resolution: {integrity: sha512-dtJUTepzMW3Lm/NPxRf3wP4642UWhjL2sQxc+ym2YMj1m/H2zDNQOlezafzkHwn6sMstjHTwG6iQQsctDW/b1A==}
@@ -3975,6 +3981,10 @@ snapshots:
 
   emoji-regex@9.2.2: {}
 
+  encoding@0.1.13:
+    dependencies:
+      iconv-lite: 0.6.3
+
   env-paths@3.0.0: {}
 
   es-abstract@1.23.9:
@@ -4863,9 +4873,11 @@ snapshots:
 
   node-domexception@1.0.0: {}
 
-  node-fetch@2.7.0:
+  node-fetch@2.7.0(encoding@0.1.13):
     dependencies:
       whatwg-url: 5.0.0
+    optionalDependencies:
+      encoding: 0.1.13
 
   node-releases@2.0.19: {}
 
@@ -4921,7 +4933,7 @@ snapshots:
     dependencies:
       wrappy: 1.0.2
 
-  openai@4.91.1(zod@3.24.2):
+  openai@4.91.1(encoding@0.1.13)(zod@3.24.2):
     dependencies:
       '@types/node': 18.19.86
       '@types/node-fetch': 2.6.12
@@ -4929,7 +4941,7 @@ snapshots:
       agentkeepalive: 4.6.0
       form-data-encoder: 1.7.2
       formdata-node: 4.4.1
-      node-fetch: 2.7.0
+      node-fetch: 2.7.0(encoding@0.1.13)
     optionalDependencies:
       zod: 3.24.2
     transitivePeerDependencies:

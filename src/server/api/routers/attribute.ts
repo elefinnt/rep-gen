@@ -58,7 +58,7 @@ export const attributeRouter = createTRPCRouter({
         });
       } else {
         return ctx.db.query.attributes.findMany({
-          where: (attributes, ops) =>
+          where: (attributes) =>
             and(
               eq(attributes.category, category),
               like(attributes.text, `%${searchTerm}%`),
