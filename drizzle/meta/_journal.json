@@ -15,6 +15,13 @@
       "when": 1743919521016,
       "tag": "0001_wandering_blizzard",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1744584473391,
+      "tag": "0002_light_harpoon",
+      "breakpoints": true
     }
   ]
 }
