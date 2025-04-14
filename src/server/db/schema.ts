@@ -41,9 +41,9 @@ export const userProfiles = createTable("user_profile", {
 // Students table to store student information
 export const students = createTable("student", {
   id: int("id").primaryKey().autoincrement(),
-  userId: int("user_id")
-    .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
+  // userId: int("user_id")
+  //   .notNull()
+  //   .references(() => users.id, { onDelete: "cascade" }),
   name: varchar({ length: 255 }).notNull(),
   gender: varchar({ length: 50 }).notNull().default("other"), // Options: "male", "female", "other"
 });
