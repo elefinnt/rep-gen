@@ -22,6 +22,20 @@
       "when": 1744584473391,
       "tag": "0002_light_harpoon",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1744594342383,
+      "tag": "0003_lush_venom",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1744594635199,
+      "tag": "0004_real_talon",
+      "breakpoints": true
     }
   ]
 }

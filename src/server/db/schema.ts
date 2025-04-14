@@ -2,12 +2,10 @@
 
 import {
   mysqlTableCreator,
-  serial,
   varchar,
-  int,
   text,
   boolean,
-  timestamp,
+  int,
 } from "drizzle-orm/mysql-core";
 
 /**
@@ -16,11 +14,11 @@ import {
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const createTable = mysqlTableCreator((name) => `rep-gen_${name}`);
+export const createTable = mysqlTableCreator((name) => `repgen_${name}`);
 
 // Users table to store authentication information
 export const users = createTable("user", {
-  id: serial("id").primaryKey().autoincrement(),
+  id: int("id").primaryKey().autoincrement(),
   email: varchar({ length: 255 }).notNull().unique(),
   passwordHash: varchar({ length: 255 }).notNull(),
   name: varchar({ length: 255 }).notNull(),
@@ -28,7 +26,7 @@ export const users = createTable("user", {
 
 // User profiles table to store additional user information
 export const userProfiles = createTable("user_profile", {
-  id: serial("id").primaryKey().autoincrement(),
+  id: int("id").primaryKey().autoincrement(),
   userId: int("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
@@ -42,7 +40,7 @@ export const userProfiles = createTable("user_profile", {
 
 // Students table to store student information
 export const students = createTable("student", {
-  id: serial("id").primaryKey().autoincrement(),
+  id: int("id").primaryKey().autoincrement(),
   userId: int("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
@@ -52,15 +50,15 @@ export const students = createTable("student", {
 
 // Global attributes table to store positive and improvement attributes visible to all users
 export const attributes = createTable("attribute", {
-  id: serial("id").primaryKey().autoincrement(),
+  id: int("id").primaryKey().autoincrement(),
   text: varchar({ length: 255 }).notNull(),
   category: varchar({ length: 255 }).notNull(),
   isGlobal: boolean("is_global").default(true).notNull(),
 });
 
 // Personal attributes table to store user-specific attributes
-export const personalAttributes = createTable("personal_attribute", {
-  id: serial("id").primaryKey().autoincrement(),
+export const personalAttributes = createTable("personal_attr", {
+  id: int("id").primaryKey().autoincrement(),
   userId: int("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
@@ -69,8 +67,8 @@ export const personalAttributes = createTable("personal_attribute", {
 });
 
 // Student-Attributes junction table to store the many-to-many relationship for global attributes
-export const studentAttributes = createTable("student_attribute", {
-  id: serial("id").primaryKey().autoincrement(),
+export const studentAttributes = createTable("student_attr", {
+  id: int("id").primaryKey().autoincrement(),
   studentId: int("student_id")
     .notNull()
     .references(() => students.id, { onDelete: "cascade" }),
@@ -80,12 +78,12 @@ export const studentAttributes = createTable("student_attribute", {
 });
 
 // Student-Personal Attributes junction table for user-specific attributes
-export const studentUserAttributes = createTable("student_user_attributes", {
-  id: serial("id").primaryKey().autoincrement(),
+export const studentUserAttributes = createTable("student_user_attr", {
+  id: int("id").primaryKey().autoincrement(),
   studentId: int("student_id")
     .notNull()
     .references(() => students.id, { onDelete: "cascade" }),
-  personalAttributeId: int("personal_attribute_id")
+  attrId: int("attr_id")
     .notNull()
     .references(() => personalAttributes.id, { onDelete: "cascade" }),
 });
